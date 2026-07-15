@@ -5,7 +5,7 @@
     "license": "GPL-2.0-or-later",
     "require": {
         "php": "^8.2",
-        "krma-cl/kcfinder": "^4.3@RC",
+        "krma-cl/kcfinder": "^4.5",
         "league/flysystem": "^3.35",
         "symfony/config": "^7.4|^8.0",
         "symfony/dependency-injection": "^7.4|^8.0",
