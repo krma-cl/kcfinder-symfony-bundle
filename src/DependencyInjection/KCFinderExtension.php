@@ -12,6 +12,7 @@ use Krma\KCFinder\Symfony\FlysystemMetadataProvider;
 use Krma\KCFinder\Symfony\FlysystemUrlResolver;
 use Krma\KCFinder\Symfony\KCFinderManager;
 use Krma\KCFinder\Symfony\SecurityAuthorization;
+use Krma\KCFinder\Symfony\Command\InstallThemeCommand;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -45,5 +46,9 @@ final class KCFinderExtension extends Extension
             KCFinderManager::class,
             array(new Reference(FileSelectionService::class), new Reference('event_dispatcher'))
         ))->setPublic(true));
+        $container->setDefinition(InstallThemeCommand::class, (new Definition(
+            InstallThemeCommand::class,
+            array('%kernel.project_dir%', $config['theme_directory'])
+        ))->addTag('console.command'));
     }
 }

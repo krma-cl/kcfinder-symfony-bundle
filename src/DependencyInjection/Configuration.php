@@ -17,7 +17,8 @@ final class Configuration implements ConfigurationInterface
                 ->scalarNode('filesystem_service')->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('url_prefix')->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('security_attribute')->defaultValue('KCFINDER_SELECT')->cannotBeEmpty()->end()
-                ->scalarNode('browser_url')->defaultValue('/vendor/kcfinder/browse.php')->cannotBeEmpty()->end()
+                ->scalarNode('browser_url')->defaultValue('/kcfinder/browse.php')->cannotBeEmpty()->end()
+                ->scalarNode('theme_directory')->defaultValue('public/kcfinder/themes')->cannotBeEmpty()->end()
             ->end();
 
         return $treeBuilder;
